@@ -1,0 +1,101 @@
+<div class="row">
+  <div class="col-md-12" style="margin-top: 20px;margin-bottom: 20px;">
+      <app-employee-search (employeeSearched) ="onEmployeeSearched($event)"></app-employee-search>   
+  </div>
+  <div class="mat-elevation-z8">
+    <h4 style="margin: 25px;font-weight: bolder;">Employees</h4>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort #empTbSort="matSort">
+     
+      <!-- Image # Column -->
+      <ng-container matColumnDef="path">
+        <th mat-header-cell *matHeaderCellDef > #</th>
+        <td mat-cell *matCellDef="let element"> 
+          <img 
+          [src]="element.path"
+          alt="{{element.id}}" 
+          class="img-responsive" 
+          style="width: 20px;height: 20px;" />  
+        </td>
+      </ng-container>
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+  
+      <!-- Login Column -->
+      <ng-container matColumnDef="login">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Login </th>
+        <td mat-cell *matCellDef="let element"> {{element.login}} </td>
+      </ng-container>
+  
+      <!-- Salary Column -->
+      <ng-container matColumnDef="salary">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Salary </th>
+        <td mat-cell *matCellDef="let element"> {{element.salary}} </td>
+      </ng-container>
+   
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef > Action </th>
+        <td mat-cell *matCellDef="let element">
+             
+              <a href="#" style="margin-right: 5px;cursor: pointer;" 
+              (click)="onEditEmployee(element)"  routerLink="/employee-dashboard" >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                      <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                    </svg>
+              </a>&nbsp;
+              <a href="#" style="cursor: pointer;" (click)="onDeleteEmployee(element)" routerLink="/employee-dashboard">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-trash3" viewBox="0 0 16 16"  >
+                      <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                  </svg>
+              </a>  
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+  <!-- Modal -->
+<div class="modal fade mainModal" id="employeeModal" tabindex="-1" aria-labelledby="employeeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h4 class="modal-title" id="employeeModalLabel" >Edit</h4>
+      </div>
+      <div class="modal-body">
+        <label for="EmployeeEditForm" id="EmployeeEditFormTitle"><h4>Employee Id : {{editEmployee.id}}</h4></label>
+        <div class="input-group" id="EmployeeEditForm">
+          <div class="form-floating text-input-group">
+            <input type="text" ngbAutofocus class="form-control text-input" [(ngModel)] ="editEmployee.name" placeholder="Name" aria-label="Name">
+            <label class="input-label" for="name">Name</label>
+          </div>
+          <div class="form-floating text-input-group">
+            <input type="text"  class="form-control text-input" [(ngModel)] ="editEmployee.login" placeholder="Login" aria-label="Login">
+            <label class="input-label" for="login">Login</label>
+          </div>
+          <div class="form-floating text-input-group" >
+            <input type="text"  class="form-control text-input" [(ngModel)] ="editEmployee.salary" placeholder="Salary" aria-label="Salary" (keypress)="decimalFilter($event)">
+            <label class="input-label" for="salary">Salary</label>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button"  class="btn btn-primary modal-footer-button" (click)="onSaveEmployee()" >Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

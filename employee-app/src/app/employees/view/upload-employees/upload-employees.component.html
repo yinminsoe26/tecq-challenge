@@ -1,0 +1,21 @@
+
+<div class="row" style="border: 1px black solid; margin: 30px; padding: 30px;">
+    <div class="col-md-12">
+            
+            <!--app-file-upload<app-file-upload formControlName="image" [progress]="progress"></app-file-upload>-->
+             
+              <input 
+              #csvFileUpload
+              [accept]="'.csv'"
+              [(ngModel)]="uploadFile" 
+              type="file" 
+              class="form-control" id="inputGroupFile04" 
+              aria-describedby="inputGroupFileAddon04"
+                aria-label="Upload" />
+              <button  (click)="onUploadToServer()" class="btn btn-outline-secondary" type="button" 
+              id="csvFileUpload" routerLink="/upload-employees" >
+                Upload
+              </button>
+            
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="navbar-form navbar-left" >
+    <div class="form-group">
+       <div class="row">
+            <div class="col-md-12">
+                <div class="input-group ">
+                    <a href="#" class="input-group-text" id="basic-addon1" (click)="onSearchEmployee()">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                        </svg>
+                    </a>
+               
+                    <div class="form-floating">
+                        <input type="text" id="minSalary" class="form-control salary"  [(ngModel)]="employeeSearchedData.minSalary" aria-label="Enter Amount" (keypress)="decimalFilter($event)">
+                        <label class="salaryLabel" for="minSalary">Minimum Salary</label>
+                        <label class="enterAmtLabel" for="minSalary">Enter Amount</label>
+                        <label class="dollarLabel" for="minSalary">$</label>
+                      </div>
+                      <span class="dashSeparator">-</span>
+                    <div class="form-floating">
+                        <input type="text" id="maxSalary" class="form-control salary" [(ngModel)]="employeeSearchedData.maxSalary"  aria-label="Enter Amount" (keypress)="decimalFilter($event)" (keyup.enter)="onSearchEmployee()">
+                        <label class="salaryLabel" for="maxSalary">Maximum Salary</label>
+                        <label class="enterAmtLabel" for="maxSalary">Enter Amount</label>
+                        <label class="dollarLabel" for="maxSalary">$</label>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

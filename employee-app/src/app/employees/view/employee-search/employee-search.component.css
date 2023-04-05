@@ -1,0 +1,33 @@
+.salaryLabel{
+    margin-top: 5px;
+    color: rgb(180, 180, 180);
+    font-weight: bold;
+}
+.salary{
+    text-indent:122px;
+}
+.enterAmtLabel{
+    margin-top: 25px;
+    margin-left: 0px;
+    color: black;
+    font-weight: bold;
+}
+.dollarLabel{
+    margin-top: 10px;
+    margin-left: 110px;
+    color: black;
+    font-weight: bolder;
+}
+.dashSeparator{
+        display: flex;
+        align-items: center;
+        padding: .375rem .75rem;
+        font-size: 1rem;  
+        font-weight: 400;
+        line-height: 1.5;
+        color: black;
+        text-align: center;
+        white-space: nowrap;
+        background-color: #ffffff;
+        border: 0px;
+}

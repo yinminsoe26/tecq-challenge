@@ -1,0 +1,72 @@
+table {
+    width: 100%;
+  }
+  .mat-mdc-table tbody, .mat-mdc-table tfoot, .mat-mdc-cell, .mat-mdc-footer-cell,  .mat-mdc-row, .mat-mdc-footer-row {
+    background-color: #e5e5e5;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+    padding: 6px 10px;
+    color: black;
+  }
+  .mat-mdc-table .mat-mdc-table thead, .mat-mdc-header-row, .mat-mdc-row, .mat-mdc-table .mat-mdc-header-cell{
+    background: #FFFFFF;
+    color: black;
+  }
+  .modal-header .btn-close{
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    font-weight: bolder;
+   }
+   #employeeModalLabel{
+     display: inline-block;
+     vertical-align: middle;
+     margin: 10px 0;
+     width: var(--bs-modal-width);
+     text-align: center;
+     font-weight: bolder;
+   }
+ .mainModal{
+     margin: 30px;
+   }
+ 
+ .modal-footer-button{
+     background-color: black;
+     width: 100%;
+     height: 60px;
+     font-weight: bolder;
+     margin: 0;
+     color: #ffffff;
+ }
+ 
+ .edit-form{
+ line-height: normal; 
+    height: 70px;
+ }
+ 
+ .input-label{
+     margin-top: 5px;
+     color: rgb(180, 180, 180);
+     font-weight: bold;
+ }
+ 
+ .text-input{
+     border: 0px;
+     width: 100%;
+     background-color: rgb(245, 245, 247);
+ }
+ .text-input-group{
+     padding: 4px;
+     border: 1px solid rgb(59, 59, 60);
+     width: 100%;
+     background-color: rgb(245, 245, 247);
+ }
+ #EmployeeEditForm {
+     border: 3px solid rgb(59, 59, 60);
+     border-radius: 7px;
+     font-weight: bold;
+   }
+ #employeeModalLabel, #EmployeeEditFormTitle h4{
+  font-weight: bold;
+ }

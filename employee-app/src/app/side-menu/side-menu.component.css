@@ -1,0 +1,73 @@
+.side-menu{
+    height: 100%;
+    background-color: #B3B3B3;
+    border: 1px solid blue;
+    margin: 0px;
+    padding: 0px;
+    font-weight: bold;
+}
+.navbar-header{
+    width: 100%;
+    text-align: center;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+ 
+ul.left-menu {
+    width: 100%;
+    margin-top: 20px;
+    display: inline-block;
+    text-align: left;
+    line-height: 50px;
+  }
+ 
+.smallIcon{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10px; 
+    height: 10px;
+    text-align: center;
+    vertical-align: center;
+    margin-right: 5px;
+}
+.left-menu li a{
+    width: 100%;
+    text-decoration: none;
+    color: #FFFFFF;
+    text-align: left;
+    font-weight: bold;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+.left-menu li{
+  width: 100%;
+}
+.button {
+    box-shadow: inset 0 1px 0 0 #B3B3B3;;
+    background: #B3B3B3 linear-gradient(to bottom, #B3B3B3 5%, #f6f6f6 100%);
+    border-radius: 0px;
+    border: 0px solid #dcdcdc;
+    display: inline-block;
+    cursor: pointer;
+    color: #666666;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 0px 24px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #ffffff;
+    outline: 0;
+}
+.activebutton {
+    box-shadow: inset 0 1px 0 0 #dcecfb;
+    background: #bddbfa linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+    border: 1px solid #84bbf3;
+    color: #ffffff;
+    text-shadow: 0 1px 0 #528ecc;
+}
